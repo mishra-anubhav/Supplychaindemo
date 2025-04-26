@@ -1,0 +1,13 @@
+streamlit
+langchain
+langchain-openai
+langchain-community
+ pydantic>=2.0.0,<3.0.0
+python-dotenv
+openai
+pinecone
+pandas
+pypdf
+prophet
+scipy
+plotly
