@@ -26,8 +26,7 @@ from dotenv import load_dotenv
 
 # Load environment variables and set OpenAI API key
 load_dotenv()
-openai.api_key = os.getenv("OPENAI_API_KEY")
-
+openai.api_key = st.secrets["openai"]["api_key"]
 # Define path to the supply chain database
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
 DB_PATH = os.path.join(BASE_DIR, "database", "supplychain.db")
