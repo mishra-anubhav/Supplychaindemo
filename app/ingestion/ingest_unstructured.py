@@ -17,8 +17,11 @@ load_dotenv()
 
 # 📁 Paths and config
 UPLOAD_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../data/uploaded_docs"))
-PINECONE_API_KEY = os.getenv("PINECONE_API_KEY")
-PINECONE_ENV = os.getenv("PINECONE_ENV")
+pinecone_api_key = st.secrets["pinecone"]["api_key"]
+pinecone_environment = st.secrets["pinecone"]["environment"]
+
+# Initialize Pinecone with the retrieved API key and environment
+pinecone.init(api_key=pinecone_api_key, environment=pinecone_environment)
 PINECONE_INDEX_NAME = "test"
 NAMESPACE = "supply-unstructured"
 
