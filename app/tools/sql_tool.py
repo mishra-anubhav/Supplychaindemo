@@ -12,7 +12,9 @@ import openai
 
 # 1️⃣ Load environment
 load_dotenv()
-openai.api_key = os.getenv("OPENAI_API_KEY")
+import openai
+openai.api_key = st.secrets["openai"]["api_key"]
+openai.api_key = openaiApiKey
  
 
 def _fallback_nl(raw_result: str, user_query: str = None) -> str:
