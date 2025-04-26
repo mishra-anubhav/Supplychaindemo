@@ -23,10 +23,15 @@ from langchain_openai.embeddings import OpenAIEmbeddings
 
 # Environment
 load_dotenv()
-openaiApiKey = os.getenv("OPENAI_API_KEY")
+#openaiApiKey = os.getenv("OPENAI_API_KEY")
 import openai
+openai.api_key = st.secrets["openai"]["api_key"]
 openai.api_key = openaiApiKey
-pineconeIndexName = os.getenv("PINECONE_INDEX") or "test"
+pinecone_api_key = st.secrets["pinecone"]["api_key"]
+pinecone_environment = st.secrets["pinecone"]["environment"]
+
+# Initialize Pinecone with the retrieved API key and environment
+pinecone.init(api_key=pinecone_api_key, environment=pinecone_environment)
 
 # Memory setup
 memory = ConversationBufferMemory(
